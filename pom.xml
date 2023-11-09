@@ -12,17 +12,17 @@
         <safecharge_artifactory>https://srv-bsf-jfedge.gw-4u.com/artifactory/nvi-maven-vrt</safecharge_artifactory>
     </properties>
 
-    <name>Safecharge SDK for Java</name>
-    <description>SafeCharge’s REST API SDK for Java provides developer tools for accessing Safecharge's REST API. SafeCharge’s REST API is a simple,
-        easy to use, secure and stateless API, which enables online merchants and service providers to process consumer payments through SafeCharge’s
+    <name>Nuvei SDK for Java</name>
+    <description>Nuvei’s REST API SDK for Java provides developer tools for accessing Nuvei's REST API. Nuvei’s REST API is a simple,
+        easy to use, secure and stateless API, which enables online merchants and service providers to process consumer payments through Nuvei’s
         payment gateway. The API supports merchants of all levels of PCI certification, from their online and mobile merchant applications, and is
         compatible with a large variety of payment options, i.e. payment cards, alternative payment methods, etc.
     </description>
-    <url>https://github.com/SafeChargeInternational/safecharge-java</url>
+    <url>https://github.com/NuveiInternational/nuvei-java</url>
 
     <organization>
-        <name>SafeCharge</name>
-        <url>https://www.safecharge.com</url>
+        <name>Nuvei</name>
+        <url>https://www.nuvei.com</url>
     </organization>
 
     <licenses>
@@ -33,9 +33,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git://github.com/SafeChargeInternational/safecharge-java.git</connection>
-        <developerConnection>scm:git:ssh://github.com:SafeChargeInternational/safecharge-java.git</developerConnection>
-        <url>http://github.com/SafeChargeInternational/safecharge-java/tree/master</url>
+        <connection>scm:git:git://github.com/NuveiInternational/nuvei-java.git</connection>
+        <developerConnection>scm:git:ssh://github.com:NuveiInternational/nuvei-java.git</developerConnection>
+        <url>http://github.com/NuveiInternational/nuvei-java/tree/master</url>
     </scm>
 
     <parent>
