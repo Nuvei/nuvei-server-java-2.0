@@ -4,13 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.safecharge</groupId>
-    <artifactId>safecharge-sdk-java</artifactId>
-    <version>1.7.10</version>
-
-    <properties>
-        <safecharge_artifactory>https://srv-bsf-jfedge.gw-4u.com/artifactory/nvi-maven-vrt</safecharge_artifactory>
-    </properties>
+    <groupId>com.nuvei</groupId>
+    <artifactId>nuvei-sdk-java</artifactId>
+    <version>1.8.0-SNAPSHOT</version>
 
     <name>Nuvei SDK for Java</name>
     <description>Nuvei’s REST API SDK for Java provides developer tools for accessing Nuvei's REST API. Nuvei’s REST API is a simple,
