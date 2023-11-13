@@ -3,7 +3,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.safecharge/safecharge-sdk-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.safecharge/safecharge-sdk-java)
 [![codecov](https://codecov.io/gh/SafeChargeInternational/safecharge-java/branch/development/graph/badge.svg)](https://codecov.io/gh/SafeChargeInternational/safecharge-java)
 
-Nuvei’s REST API SDK for Java provides developer tools for accessing Nuvei's REST API. Nuvei’s REST API is a simple, easy to use, secure and stateless API, which enables online merchants and service providers to process consumer payments through Nuvei’s payment gateway. The API supports merchants of all levels of PCI certification, from their online and mobile merchant applications, and is compatible with a large variety of payment options, i.e. payment cards, alternative payment methods, etc. For Nuvei REST API documentation, please see: https://www.nuvei.com/docs/api/
+Nuvei’s REST API SDK for Java provides developer tools for accessing Nuvei's REST API. Nuvei’s REST API is a simple, easy to use, secure and stateless API, which enables online merchants and service providers to process consumer payments through Nuvei’s payment gateway. The API supports merchants of all levels of PCI certification, from their online and mobile merchant applications, and is compatible with a large variety of payment options, i.e. payment cards, alternative payment methods, etc. For Nuvei REST API documentation, please see: https://docs.nuvei.com/api/main
 
 ## Requirements
 
@@ -73,4 +73,4 @@ public class Sample {
     }
 }
 ```
-More samples tests can be found [here](https://github.com/NuveiInternational/nuvei-java/tree/master/src/test/java/com/nuvei/test/workflow/).
+More samples tests can be found [here](https://github.com/Nuvei/nuvei-server-java/tree/master/src/test/java/com/nuvei/test/workflow/).
