@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2023 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
  */
 
 package com.nuvei.request.builder;
@@ -14,6 +14,7 @@ import com.nuvei.model.DeviceDetails;
 import com.nuvei.model.DynamicDescriptor;
 import com.nuvei.model.Item;
 import com.nuvei.model.MerchantDetails;
+import com.nuvei.model.ShippingTrackingDetails;
 import com.nuvei.model.UrlDetails;
 import com.nuvei.model.UserAddress;
 import com.nuvei.request.NuveiOrderDetailsRequest;
@@ -510,6 +511,7 @@ public abstract class NuveiOrderBuilder<T extends NuveiOrderBuilder<T>> extends 
         nuveiOrderDetailsRequest.setUserTokenId(userTokenId);
         nuveiOrderDetailsRequest.setClientUniqueId(clientUniqueId);
         nuveiOrderDetailsRequest.setAmountDetails(amountDetails);
+        nuveiOrderDetailsRequest.setShippingTrackingDetails(shippingTrackingDetails);
 
         nuveiOrderDetailsRequest.setChecksum(
                 ChecksumUtils.calculateChecksum(nuveiOrderDetailsRequest, merchantInfo != null ? merchantInfo.getMerchantKey() : "",

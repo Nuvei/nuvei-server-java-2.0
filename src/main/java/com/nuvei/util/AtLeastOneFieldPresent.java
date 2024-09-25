@@ -1,4 +1,4 @@
-package com.safecharge.util;
+package com.nuvei.util;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

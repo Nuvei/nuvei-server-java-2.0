@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2023 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
  */
 
 package com.nuvei.biz;
@@ -16,6 +16,8 @@ import org.mockito.MockitoAnnotations;
 
 import com.nuvei.exception.NuveiConfigurationException;
 import com.nuvei.exception.NuveiException;
+import com.nuvei.model.CardData;
+import com.nuvei.model.RefundPaymentOption;
 import com.nuvei.request.AccountCaptureRequest;
 import com.nuvei.request.Authorize3dRequest;
 import com.nuvei.request.CardDetailsRequest;
@@ -311,11 +313,11 @@ public class NuveiTest {
     }
 
     @Test
-    public void shouldExecuteUnreferencedRefundTransactionRequestAndReturnResponse() throws SafechargeException {
-        SafechargeResponse sessionResponse = mock(SafechargeResponse.class);
+    public void shouldExecuteUnreferencedRefundTransactionRequestAndReturnResponse() throws NuveiException {
+        NuveiResponse sessionResponse = mock(NuveiResponse.class);
         when(sessionResponse.getSessionToken()).thenReturn("sessionToken");
 
-        SafechargeResponse refundTransactionResponse = new RefundTransactionResponse();
+        NuveiResponse refundTransactionResponse = new RefundTransactionResponse();
 
         when(executor.execute(any(GetSessionTokenRequest.class))).thenReturn(sessionResponse);
         when(executor.execute(any(RefundTransactionRequest.class))).thenReturn(refundTransactionResponse);

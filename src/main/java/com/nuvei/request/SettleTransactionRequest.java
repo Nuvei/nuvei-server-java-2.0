@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2023 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
  */
 
 package com.nuvei.request;
@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 
 import com.nuvei.model.Addendums;
 import com.nuvei.model.DynamicDescriptor;
+import com.nuvei.model.ShippingTrackingDetails;
 import com.nuvei.request.builder.NuveiTransactionBuilder;
 import com.nuvei.util.Constants;
 import com.nuvei.util.ValidChecksum;

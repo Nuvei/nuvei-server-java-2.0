@@ -1,4 +1,4 @@
-package com.safecharge.util;
+package com.nuvei.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

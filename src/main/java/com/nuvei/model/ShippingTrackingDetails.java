@@ -1,4 +1,4 @@
-package com.safecharge.model;
+package com.nuvei.model;
 
 public class ShippingTrackingDetails {
 

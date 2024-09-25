@@ -1,12 +1,11 @@
 /*
- * Copyright (C) 2007 - 2023 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
  */
 
 package com.nuvei.response;
 
 import com.nuvei.model.PaymentOptionResponse;
-import com.safecharge.model.PaymentOptionResponse;
-import com.safecharge.util.Constants.CardAuthMethod;
+import com.nuvei.util.Constants.CardAuthMethod;
 
 public class InitPaymentResponse extends NuveiResponse {
 

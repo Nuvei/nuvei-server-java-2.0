@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2023 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
  */
 
 package com.nuvei.biz;
@@ -123,7 +123,7 @@ public class Nuvei {
      * @param serviceDueDate         Subscription end date
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                          method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public PaymentResponse payment(String userTokenId, String clientUniqueId, String clientRequestId, PaymentOption paymentOption, Integer isRebilling,
@@ -133,9 +133,8 @@ public class Nuvei {
                                    String customData, String relatedTransactionId, Constants.TransactionType transactionType, Boolean autoPayment3D,
                                    String isMoto, SubMerchant subMerchant, String rebillingType, String authenticationOnlyType, String userId,
                                    ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion, String isPartialApproval, String paymentFlow,
-                                   String redirectFlowUITheme, String aftOverride, RecipientDetails recipientDetails, CompanyDetails companyDetails) throws NuveiException {
-                                   String redirectFlowUITheme, String aftOverride, RecipientDetails recipientDetails, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails,
-                                   String cvvNotUsed, String serviceDueDate) throws SafechargeException {
+                                   String redirectFlowUITheme, String aftOverride, RecipientDetails recipientDetails, CompanyDetails companyDetails,
+                                   ShippingTrackingDetails shippingTrackingDetails, String cvvNotUsed, String serviceDueDate) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
@@ -177,7 +176,7 @@ public class Nuvei {
      * @param recipientDetails This class is relevant for Visa’s AFTs, and contains the details of the recipient receiving the funding.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                          method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public InitPaymentResponse initPayment(String userTokenId, String clientUniqueId, String clientRequestId, String currency, String amount,
@@ -243,7 +242,7 @@ public class Nuvei {
      * @param aftOverride            Used to instruct the gateway that this transaction should not be marked as AFT. Accepted values: "0" / "1".
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                          method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public OpenOrderResponse openOrder(String userTokenId, String clientRequestId, String clientUniqueId, String customSiteName, String productId,
@@ -254,8 +253,7 @@ public class Nuvei {
                                        Addendums addendums, String customData, Boolean autoPayment3D, String isMoto, String authenticationOnlyType,
                                        SubMerchant subMerchant, Integer isRebilling, String rebillingType, String preventOverride, String userId,
                                        String isPartialApproval, ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion,
-                                       OpenAmount openAmount, String aftOverride, CompanyDetails companyDetails) throws NuveiException {
-                                       OpenAmount openAmount, String aftOverride, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails) throws SafechargeException {
+                                       OpenAmount openAmount, String aftOverride, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails)  throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
@@ -276,7 +274,7 @@ public class Nuvei {
      *
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                          method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public GetPaymentStatusResponse getPaymentStatus() throws NuveiException {
@@ -313,7 +311,7 @@ public class Nuvei {
      * @param subMerchant          Contains information about the SubMerchant.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                          method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public VoidTransactionResponse voidTransaction(String clientRequestId, String relatedTransactionId, String amount, String currency,
@@ -357,15 +355,14 @@ public class Nuvei {
      * @param subMerchant             Contains information about the SubMerchant.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                          method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public SettleTransactionResponse settleTransaction(String clientUniqueId, String clientRequestId, Addendums addendums,
                                                        String descriptorMerchantName, String descriptorMerchantPhone,
                                                        UrlDetails urlDetails, String amount, String authCode, String customData,
                                                        String comment, String currency, String customSiteName, String productId,
-                                                       String relatedTransactionId, SubMerchant subMerchant) throws NuveiException {
-                                                       String relatedTransactionId, SubMerchant subMerchant, ShippingTrackingDetails shippingTrackingDetails) throws SafechargeException {
+                                                       String relatedTransactionId, SubMerchant subMerchant, ShippingTrackingDetails shippingTrackingDetails) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
@@ -402,24 +399,17 @@ public class Nuvei {
      * @param subMerchant          Contains information about the SubMerchant.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                          method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public RefundTransactionResponse refundTransaction(String clientUniqueId, String clientRequestId, UrlDetails urlDetails,
-                                                       String amount, String authCode, String comment, String currency, String customData,
-                                                       String customSiteName, String productId, String relatedTransactionId, SubMerchant subMerchant,
-                                                       CompanyDetails companyDetails) throws NuveiException {
-    public RefundTransactionResponse refundTransaction(String clientUniqueId, String clientRequestId,
-            UrlDetails urlDetails,
             String amount, String authCode, String comment, String currency, String customData,
             String customSiteName, String productId, String relatedTransactionId, SubMerchant subMerchant,
-            CompanyDetails companyDetails, RefundPaymentOption refundPaymentOption, String userTokenId) throws SafechargeException {
+            CompanyDetails companyDetails, RefundPaymentOption refundPaymentOption, String userTokenId) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
         NuveiBaseRequest request = requestBuilder.getRefundTransactionRequest(sessionToken, merchantInfo, clientUniqueId,
-        SafechargeBaseRequest request = requestBuilder.getRefundTransactionRequest(sessionToken, merchantInfo,
-                clientUniqueId,
                 clientRequestId, urlDetails, amount, authCode, comment, currency, customData, customSiteName, productId,
                 relatedTransactionId, subMerchant, companyDetails, refundPaymentOption, userTokenId);
 
@@ -452,7 +442,7 @@ public class Nuvei {
      *                             Can have either card, alternativePaymentMethod, or userPaymentOptionId.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                          method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public Verify3dResponse verify3d(String clientUniqueId, String clientRequestId, String amount, String currency, UserAddress billingAddress,
@@ -517,7 +507,7 @@ public class Nuvei {
      * @param currencyConversion     Used to specify currency conversion details
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                          method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public Authorize3dResponse authorize3d(String userTokenId, String clientUniqueId, String clientRequestId, PaymentOption paymentOption,
@@ -553,7 +543,7 @@ public class Nuvei {
      * @param cardNumber      This field can accept both cardNumber and card BIN number.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                          method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public CardDetailsResponse getCardDetails(String clientUniqueId, String clientRequestId, String cardNumber) throws NuveiException {

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2023 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
  */
 
 package com.nuvei.request;
@@ -12,12 +12,8 @@ import com.nuvei.request.builder.NuveiTransactionBuilder;
 import com.nuvei.util.Constants;
 import com.nuvei.util.ValidChecksum;
 import com.nuvei.util.ValidationUtils;
-import com.safecharge.model.RefundPaymentOption;
-import com.safecharge.request.builder.SafechargeTransactionBuilder;
-import com.safecharge.util.AtLeastOneFieldPresent;
-import com.safecharge.util.Constants;
-import com.safecharge.util.ValidChecksum;
-import com.safecharge.util.ValidationUtils;
+import com.nuvei.model.RefundPaymentOption;
+import com.nuvei.util.AtLeastOneFieldPresent;
 
 /**
  * <p>
@@ -136,7 +132,7 @@ public class RefundTransactionRequest
          * @throws ConstraintViolationException if the validation of the params fails
          */
         @Override
-        public SafechargeBaseRequest build() throws ConstraintViolationException {
+        public NuveiBaseRequest build() throws ConstraintViolationException {
             RefundTransactionRequest refundTransactionRequest = new RefundTransactionRequest();
             refundTransactionRequest.setPaymentOption(refundPaymentOption);
             refundTransactionRequest.setUserTokenId(userTokenId);

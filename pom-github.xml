@@ -6,7 +6,7 @@
 
     <groupId>com.nuvei</groupId>
     <artifactId>nuvei-sdk-java</artifactId>
-    <version>1.8.0</version>
+    <version>2.0.0</version>
 
     <name>Nuvei SDK for Java</name>
     <description>Nuvei’s REST API SDK for Java provides developer tools for accessing Nuvei's REST API. Nuvei’s REST API is a simple,

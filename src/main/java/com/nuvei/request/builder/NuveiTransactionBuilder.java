@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2023 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
  */
 
 package com.nuvei.request.builder;
@@ -35,6 +35,7 @@ public abstract class NuveiTransactionBuilder<T extends NuveiTransactionBuilder<
     private String customData;
     private SubMerchant subMerchant;
     private CompanyDetails companyDetails;
+    private String relatedTransactionId;
 
     /**
      * Adds amount to the request.
@@ -190,7 +191,6 @@ public abstract class NuveiTransactionBuilder<T extends NuveiTransactionBuilder<
         nuveiTransactionRequest.setAuthCode(authCode);
         nuveiTransactionRequest.setComment(comment);
         nuveiTransactionRequest.setClientUniqueId(clientUniqueId);
-        nuveiTransactionRequest.setRelatedTransactionId(relatedTransactionId);
         nuveiTransactionRequest.setUrlDetails(urlDetails);
         nuveiTransactionRequest.setCustomSiteName(customSiteName);
         nuveiTransactionRequest.setProductId(productId);

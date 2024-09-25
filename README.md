@@ -17,7 +17,7 @@ If your application is going to be deployed on a Java EE server add the followin
 <dependency>    
     <groupId>com.nuvei</groupId>
     <artifactId>nuvei-sdk-java</artifactId>
-    <version>1.7.10</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
@@ -31,7 +31,7 @@ For example:
     <dependency>    
         <groupId>com.nuvei</groupId>
         <artifactId>nuvei-sdk-java</artifactId>
-        <version>1.7.5</version>
+        <version>2.0.0</version>
     </dependency>
     <dependency>
         <groupId>org.apache.bval</groupId>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2023 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
  */
 
 package com.nuvei.request;
@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.nuvei.model.CompanyDetails;
+import com.nuvei.model.ShippingTrackingDetails;
 import com.nuvei.model.SubMerchant;
 import com.nuvei.model.UrlDetails;
 
