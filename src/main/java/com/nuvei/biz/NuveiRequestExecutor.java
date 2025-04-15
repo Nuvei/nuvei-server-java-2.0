@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.biz;
@@ -182,7 +182,7 @@ public class NuveiRequestExecutor {
     }
 
     /**
-     * Sends a {@link NuveiRequest} to Nuvei's API via HTTP POST method.
+     * Sends a {@link NuveiRequest} 2007 - 2024 Nuvei Corporation's API via HTTP POST method.
      *
      * @param request {@link NuveiRequest} API request object
      * @return {@link NuveiResponse} API response object or null if the response can't be parsed
@@ -196,7 +196,7 @@ public class NuveiRequestExecutor {
     }
 
     /**
-     * Sends a {@link NuveiRequest} to Nuvei's API via HTTP POST method.
+     * Sends a {@link NuveiRequest} 2007 - 2024 Nuvei Corporation's API via HTTP POST method.
      *
      * @param request {@link NuveiRequest} API request object
      * @return {@link NuveiResponse} API response object.

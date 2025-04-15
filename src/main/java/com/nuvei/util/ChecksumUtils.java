@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.util;
@@ -23,7 +23,7 @@ import org.apache.commons.logging.LogFactory;
 /**
  * <p>
  * Utility class used for calculating the Nuvei's request's checksum. Merchant key can be obtained by contacting
- * <a mailto:integration@nuvei.com>Nuvei’s Integration Team</a>
+ * <a mailto:integration@nuvei.com>Nuvei's Integration Team</a>
  *
  * @author <a mailto:nikolad@nuvei.com>Nikola Dichev</a>
  * @since 3/21/2017

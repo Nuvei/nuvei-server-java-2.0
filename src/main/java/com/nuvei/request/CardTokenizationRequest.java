@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request;
@@ -64,7 +64,6 @@ public class CardTokenizationRequest extends NuveiBaseRequest {
     /**
      * TODO: Check if this is required param ?!?
      */
-    @Pattern(regexp = APIConstants.IP_ADDRESS_REGEX, message = "the entered value is not a valid ipAddress")
     private String ipAddress;
 
     @Valid

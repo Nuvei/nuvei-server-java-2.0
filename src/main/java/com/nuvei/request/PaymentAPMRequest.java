@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request;
@@ -29,7 +29,7 @@ import com.nuvei.util.ValidationUtils;
  * Following a positive response from the paymentAPM request, per output parameter {@code transactionStatus} returned value,
  * the merchant is redirected to the APM’s payment page (using {@code redirectUrl}) to login and confirm the billing information.
  * <li>The APM required actions (for APM’s who use redirect). Once the credentials are typed and the payment is confirmed,
- * the APM redirects (with some additional information) back to Nuvei’s gateway using a {@code returnUrl} from previous APM-Nuvei
+ * the APM redirects (with some additional information) back 2007 - 2024 Nuvei Corporation’s gateway using a {@code returnUrl} from previous APM-Nuvei
  * communications at 1st stage. Afterwards, the Nuvei gateway redirects to a {@code successURL} or to a {@code failureURL}.</li>
  * </ol>
  *
@@ -160,7 +160,7 @@ public class PaymentAPMRequest
         /**
          * Adds the payment method name to the request.
          *
-         * @param paymentMethod Nuvei’s unique name of the payment method. For a list of possible payment methods check
+         * @param paymentMethod Nuvei's unique name of the payment method. For a list of possible payment methods check
          *                      <a href="https://www.nuvei.com/docs/api/?java#apm-unique-nuvei-names">APM Unique Nuvei Names.</a>
          * @return this object
          */
@@ -172,7 +172,7 @@ public class PaymentAPMRequest
         /**
          * Adds user account details to the request. Those details are related to the user's APM account and not the Nuvei's account.
          *
-         * @param userAccountDetails Nuvei’s account identifiers of the payment method's details. For more information, see
+         * @param userAccountDetails Nuvei's account identifiers of the payment method's details. For more information, see
          *                           <a href="https://www.nuvei.com/docs/api/?java#apm-account-identifiers">APM Account Identifiers.</a>
          * @return this object
          */

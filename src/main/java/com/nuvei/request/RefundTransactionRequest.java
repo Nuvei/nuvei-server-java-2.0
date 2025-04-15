@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request;
@@ -8,12 +8,12 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
+import com.nuvei.model.RefundPaymentOption;
 import com.nuvei.request.builder.NuveiTransactionBuilder;
+import com.nuvei.util.AtLeastOneFieldPresent;
 import com.nuvei.util.Constants;
 import com.nuvei.util.ValidChecksum;
 import com.nuvei.util.ValidationUtils;
-import com.nuvei.model.RefundPaymentOption;
-import com.nuvei.util.AtLeastOneFieldPresent;
 
 /**
  * <p>

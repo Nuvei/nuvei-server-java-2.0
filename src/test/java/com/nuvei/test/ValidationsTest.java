@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.test;
@@ -13,6 +13,7 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
+import com.nuvei.request.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,40 +28,7 @@ import com.nuvei.model.SubMerchant;
 import com.nuvei.model.SubMethodDetails;
 import com.nuvei.model.UrlDetails;
 import com.nuvei.model.UserAddress;
-import com.nuvei.request.AccountCaptureRequest;
-import com.nuvei.request.AddUPOAPMRequest;
-import com.nuvei.request.AddUPOCreditCardByTempTokenRequest;
-import com.nuvei.request.AddUPOCreditCardByTokenRequest;
-import com.nuvei.request.AddUPOCreditCardRequest;
-import com.nuvei.request.Authorization3DRequest;
-import com.nuvei.request.CancelSubscriptionRequest;
-import com.nuvei.request.CardDetailsRequest;
-import com.nuvei.request.CardTokenizationRequest;
-import com.nuvei.request.CreateSubscriptionRequest;
-import com.nuvei.request.DccDetailsRequest;
-import com.nuvei.request.DeleteUPORequest;
-import com.nuvei.request.EditUPOAPMRequest;
-import com.nuvei.request.EditUPOCreditCardRequest;
-import com.nuvei.request.EnableUPORequest;
-import com.nuvei.request.GetMerchantPaymentMethodsRequest;
-import com.nuvei.request.GetOrderDetailsRequest;
-import com.nuvei.request.GetSessionTokenRequest;
-import com.nuvei.request.GetSubscriptionPlansRequest;
-import com.nuvei.request.GetSubscriptionsListRequest;
-import com.nuvei.request.GetUserUPOsRequest;
-import com.nuvei.request.McpRatesRequest;
-import com.nuvei.request.OpenOrderRequest;
-import com.nuvei.request.Payment3DRequest;
-import com.nuvei.request.PaymentAPMRequest;
-import com.nuvei.request.PaymentCCRequest;
-import com.nuvei.request.PayoutRequest;
-import com.nuvei.request.RefundTransactionRequest;
 import com.nuvei.request.NuveiBaseRequest;
-import com.nuvei.request.SettleTransactionRequest;
-import com.nuvei.request.SuspendUPORequest;
-import com.nuvei.request.UpdateOrderRequest;
-import com.nuvei.request.Verify3dRequest;
-import com.nuvei.request.VoidTransactionRequest;
 import com.nuvei.request.basic.EditUPOBasicRequest;
 import com.nuvei.util.AddressUtils;
 import com.nuvei.util.Constants;

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request;
@@ -10,7 +10,7 @@ import com.nuvei.util.APIConstants;
 
 /**
  * <p>
- * Abstract class to be used as a base for all of the requests to Nuvei's servers.
+ * Abstract class to be used as a base for all of the requests 2007 - 2024 Nuvei Corporation's servers.
  *
  * @author <a mailto:nikolad@nuvei.com>Nikola Dichev</a>
  * @since 2/14/2017
@@ -114,7 +114,7 @@ public abstract class NuveiBaseRequest {
         sb.append("serverHost='")
                 .append(serverHost)
                 .append('\'');
-        sb.append("internalRequestId='")
+        sb.append(", internalRequestId='")
                 .append(internalRequestId)
                 .append('\'');
         sb.append(", clientRequestId='")

@@ -13,8 +13,8 @@
     </properties>
 
     <name>Nuvei SDK for Java</name>
-    <description>Nuvei’s REST API SDK for Java provides developer tools for accessing Nuvei's REST API. Nuvei’s REST API is a simple,
-        easy to use, secure and stateless API, which enables online merchants and service providers to process consumer payments through Nuvei’s
+    <description>Nuvei’s REST API SDK for Java provides developer tools for accessing Nuvei's REST API. Nuvei's REST API is a simple,
+        easy to use, secure and stateless API, which enables online merchants and service providers to process consumer payments through Nuvei's
         payment gateway. The API supports merchants of all levels of PCI certification, from their online and mobile merchant applications, and is
         compatible with a large variety of payment options, i.e. payment cards, alternative payment methods, etc.
     </description>

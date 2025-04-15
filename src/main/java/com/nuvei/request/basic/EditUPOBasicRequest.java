@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request.basic;
@@ -7,13 +7,8 @@ package com.nuvei.request.basic;
 import javax.validation.ConstraintViolationException;
 import javax.validation.constraints.NotNull;
 
-import com.nuvei.request.DeleteUPORequest;
-import com.nuvei.request.EditUPOAPMRequest;
-import com.nuvei.request.EditUPOCreditCardRequest;
-import com.nuvei.request.EnableUPORequest;
+import com.nuvei.request.*;
 import com.nuvei.request.NuveiBaseRequest;
-import com.nuvei.request.NuveiRequest;
-import com.nuvei.request.SuspendUPORequest;
 import com.nuvei.request.builder.NuveiBuilder;
 import com.nuvei.util.Constants;
 import com.nuvei.util.ValidationUtils;
