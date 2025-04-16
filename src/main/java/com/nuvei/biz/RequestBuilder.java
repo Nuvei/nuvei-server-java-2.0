@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.biz;
@@ -20,17 +20,17 @@ public class RequestBuilder {
     }
 
     public NuveiBaseRequest getPaymentRequest(MerchantInfo merchantInfo, String sessionToken, String userTokenId, String clientUniqueId,
-                                              String clientRequestId, PaymentOption paymentOption, Integer isRebilling, String currency,
-                                              String amount, AmountDetails amountDetails, List<Item> items, DeviceDetails deviceDetails,
-                                              RestApiUserDetails userDetails, UserAddress shippingAddress, UserAddress billingAddress,
-                                              DynamicDescriptor dynamicDescriptor, MerchantDetails merchantDetails, Addendums addendums,
-                                              UrlDetails urlDetails, String customSiteName, String productId, String customData,
-                                              String relatedTransactionId, Constants.TransactionType transactionType, Boolean autoPayment3D,
-                                              String isMoto, SubMerchant subMerchant, String rebillingType, String authenticationOnlyType,
-                                              String userId, ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion,
-                                              String isPartialApproval, String paymentFlow, String redirectFlowUITheme, String aftOverride,
-                                              RecipientDetails recipientDetails, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails,
-                                              String cvvNotUsed, String serviceDueDate) {
+                                                   String clientRequestId, PaymentOption paymentOption, Integer isRebilling, String currency,
+                                                   String amount, AmountDetails amountDetails, List<Item> items, DeviceDetails deviceDetails,
+                                                   RestApiUserDetails userDetails, UserAddress shippingAddress, UserAddress billingAddress,
+                                                   DynamicDescriptor dynamicDescriptor, MerchantDetails merchantDetails, Addendums addendums,
+                                                   UrlDetails urlDetails, String customSiteName, String productId, String customData,
+                                                   String relatedTransactionId, Constants.TransactionType transactionType, Boolean autoPayment3D,
+                                                   String isMoto, SubMerchant subMerchant, String rebillingType, String authenticationOnlyType,
+                                                   String userId, ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion,
+                                                   String isPartialApproval, String paymentFlow, String redirectFlowUITheme, String aftOverride,
+                                                   RecipientDetails recipientDetails, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails,
+                                                   String cvvNotUsed, String serviceDueDate, String digitalAssetType) {
         return PaymentRequest.builder()
                 .addSessionToken(sessionToken)
                 .addIsRebilling(isRebilling)
@@ -73,13 +73,14 @@ public class RequestBuilder {
                 .addShippingTrackingDetails(shippingTrackingDetails)
                 .addCvvNotUsed(cvvNotUsed)
                 .addServiceDueDate(serviceDueDate)
+                .addDigitalAssetType(digitalAssetType)
                 .build();
     }
 
     public NuveiBaseRequest getInitPaymentRequest(String sessionToken, String userTokenId, String clientUniqueId, String clientRequestId, String currency,
-                                                  String amount, DeviceDetails deviceDetails, InitPaymentPaymentOption paymentOption, UrlDetails urlDetails,
-                                                  String customData, UserAddress billingAddress, MerchantInfo merchantInfo, String userId, String aftOverride,
-                                                  RecipientDetails recipientDetails) {
+                                                       String amount, DeviceDetails deviceDetails, InitPaymentPaymentOption paymentOption, UrlDetails urlDetails,
+                                                       String customData, UserAddress billingAddress, MerchantInfo merchantInfo, String userId, String aftOverride,
+                                                       RecipientDetails recipientDetails, String relatedTransactionId) {
         return InitPaymentRequest.builder()
                 .addSessionToken(sessionToken)
                 .addUserTokenId(userTokenId)
@@ -96,18 +97,19 @@ public class RequestBuilder {
                 .addUserId(userId)
                 .addAftOverride(aftOverride)
                 .addRecipientDetails(recipientDetails)
+                .addRelatedTransactionId(relatedTransactionId)
                 .build();
     }
 
     public NuveiBaseRequest getOpenOrderRequest(MerchantInfo merchantInfo, String sessionToken, String clientRequestId, String customSiteName,
-                                                String productId, OpenOrderPaymentOption paymentOption, Constants.TransactionType transactionType,
-                                                String currency, String amount, List<Item> items, DeviceDetails deviceDetails, RestApiUserDetails userDetails,
-                                                UserAddress shippingAddress, UserAddress billingAddress, DynamicDescriptor dynamicDescriptor, MerchantDetails merchantDetails,
-                                                UrlDetails urlDetails, String userTokenId, String clientUniqueId, UserPaymentOption userPaymentOption,
-                                                String paymentMethod, AmountDetails amountDetails, Addendums addendums, String customData, Boolean autoPayment3D,
-                                                String isMoto, String authenticationOnlyType, SubMerchant subMerchant, Integer isRebilling, String rebillingType,
-                                                String preventOverride, String userId, String isPartialApproval, ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion,
-                                                OpenAmount openAmount, String aftOverride, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails) {
+                                                     String productId, OpenOrderPaymentOption paymentOption, Constants.TransactionType transactionType,
+                                                     String currency, String amount, List<Item> items, DeviceDetails deviceDetails, RestApiUserDetails userDetails,
+                                                     UserAddress shippingAddress, UserAddress billingAddress, DynamicDescriptor dynamicDescriptor, MerchantDetails merchantDetails,
+                                                     UrlDetails urlDetails, String userTokenId, String clientUniqueId, UserPaymentOption userPaymentOption,
+                                                     String paymentMethod, AmountDetails amountDetails, Addendums addendums, String customData, Boolean autoPayment3D,
+                                                     String isMoto, String authenticationOnlyType, SubMerchant subMerchant, Integer isRebilling, String rebillingType,
+                                                     String preventOverride, String userId, String isPartialApproval, ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion,
+                                                     OpenAmount openAmount, String aftOverride, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails, String digitalAssetType) {
         return OpenOrderRequest.builder()
                 .addMerchantInfo(merchantInfo)
                 .addSessionToken(sessionToken)
@@ -148,6 +150,7 @@ public class RequestBuilder {
                 .addAftOverride(aftOverride)
                 .addCompanyDetails(companyDetails)
                 .addShippingTrackingDetails(shippingTrackingDetails)
+                .addDigitalAssetType(digitalAssetType)
                 .build();
     }
 
@@ -217,10 +220,10 @@ public class RequestBuilder {
     }
 
     public NuveiBaseRequest getRefundTransactionRequest(String sessionToken, MerchantInfo merchantInfo, String clientUniqueId,
-                                                        String clientRequestId, UrlDetails urlDetails, String amount, String authCode,
-                                                        String comment, String currency, String customData, String customSiteName,
-                                                        String productId, String relatedTransactionId, SubMerchant subMerchant,
-                                                        CompanyDetails companyDetails, RefundPaymentOption refundPaymentOption, String userTokenId) {
+                                                             String clientRequestId, UrlDetails urlDetails, String amount, String authCode,
+                                                             String comment, String currency, String customData, String customSiteName,
+                                                             String productId, String relatedTransactionId, SubMerchant subMerchant,
+                                                             CompanyDetails companyDetails, RefundPaymentOption refundPaymentOption, String userTokenId) {
         return RefundTransactionRequest.builder()
                 .addSessionToken(sessionToken)
                 .addMerchantInfo(merchantInfo)
@@ -243,9 +246,10 @@ public class RequestBuilder {
     }
 
     public NuveiBaseRequest getVerify3dRequest(String sessionToken, MerchantInfo merchantInfo, String clientUniqueId, String clientRequestId,
-                                               String amount, String currency, UserAddress billingAddress, String customData,
-                                               String customSiteName, MerchantDetails merchantDetails, String relatedTransactionId,
-                                               SubMerchant subMerchant, String userId, String userTokenId, Verify3dPaymentOption paymentOption) {
+                                                    String amount, String currency, UserAddress billingAddress, String customData,
+                                                    String customSiteName, MerchantDetails merchantDetails, String relatedTransactionId,
+                                                    SubMerchant subMerchant, String userId, String userTokenId, Verify3dPaymentOption paymentOption,
+                                                    String digitalAssetType) {
         return Verify3dRequest.builder()
                 .addSessionToken(sessionToken)
                 .addMerchantInfo(merchantInfo)
@@ -262,18 +266,19 @@ public class RequestBuilder {
                 .addUserId(userId)
                 .addUserTokenId(userTokenId)
                 .addPaymentOption(paymentOption)
+                .addDigitalAssetType(digitalAssetType)
                 .build();
     }
 
     public NuveiBaseRequest getAuthorize3dRequest(MerchantInfo merchantInfo, String sessionToken, String userTokenId, String clientUniqueId,
-                                                  String clientRequestId, PaymentOption paymentOption, Integer isRebilling, String currency,
-                                                  String amount, AmountDetails amountDetails, List<Item> items, DeviceDetails deviceDetails,
-                                                  RestApiUserDetails userDetails, UserAddress shippingAddress, UserAddress billingAddress,
-                                                  DynamicDescriptor dynamicDescriptor, MerchantDetails merchantDetails, Addendums addendums,
-                                                  UrlDetails urlDetails, String customSiteName, String productId, String customData,
-                                                  String relatedTransactionId, Constants.TransactionType transactionType, Boolean autoPayment3D,
-                                                  SubMerchant subMerchant, String userId, ExternalSchemeDetails externalSchemeDetails,
-                                                  CurrencyConversion currencyConversion, String isPartialApproval) {
+                                                       String clientRequestId, PaymentOption paymentOption, Integer isRebilling, String currency,
+                                                       String amount, AmountDetails amountDetails, List<Item> items, DeviceDetails deviceDetails,
+                                                       RestApiUserDetails userDetails, UserAddress shippingAddress, UserAddress billingAddress,
+                                                       DynamicDescriptor dynamicDescriptor, MerchantDetails merchantDetails, Addendums addendums,
+                                                       UrlDetails urlDetails, String customSiteName, String productId, String customData,
+                                                       String relatedTransactionId, Constants.TransactionType transactionType, Boolean autoPayment3D,
+                                                       SubMerchant subMerchant, String userId, ExternalSchemeDetails externalSchemeDetails,
+                                                       CurrencyConversion currencyConversion, String isPartialApproval, String digitalAssetType) {
         return Authorize3dRequest.builder()
                 .addSessionToken(sessionToken)
                 .addIsRebilling(isRebilling)
@@ -305,6 +310,7 @@ public class RequestBuilder {
                 .addExternalSchemeDetails(externalSchemeDetails)
                 .addCurrencyConversion(currencyConversion)
                 .addIsPartialApproval(isPartialApproval)
+                .addDigitalAssetType(digitalAssetType)
                 .build();
     }
 
@@ -373,7 +379,7 @@ public class RequestBuilder {
                                 UserPaymentOption userPaymentOption, String comment, DynamicDescriptor dynamicDescriptor,
                                 MerchantDetails merchantDetails, UrlDetails urlDetails, SubMethodDetails subMethodDetails,
                                 CardData cardData, DeviceDetails deviceDetails, UserDetails userDetails, CompanyDetails companyDetails,
-                                CurrencyConversion currencyConversion) {
+                                CurrencyConversion currencyConversion, String digitalAssetType) {
         return PayoutRequest.builder()
                 .addSessionToken(sessionToken)
                 .addMerchantInfo(merchantInfo)
@@ -392,6 +398,7 @@ public class RequestBuilder {
                 .addUserDetails(userDetails)
                 .addCompanyDetails(companyDetails)
                 .addCurrencyConversion(currencyConversion)
+                .addDigitalAssetType(digitalAssetType)
                 .build();
     }
 

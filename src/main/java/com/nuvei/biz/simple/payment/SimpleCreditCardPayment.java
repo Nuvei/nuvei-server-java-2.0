@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.biz.simple.payment;
@@ -9,10 +9,10 @@ import com.nuvei.model.CardData;
 import com.nuvei.model.ExternalMpi;
 import com.nuvei.model.MerchantInfo;
 import com.nuvei.request.GetSessionTokenRequest;
-import com.nuvei.request.PaymentCCRequest;
 import com.nuvei.request.NuveiBaseRequest;
-import com.nuvei.response.PaymentsResponse;
+import com.nuvei.request.PaymentCCRequest;
 import com.nuvei.response.NuveiResponse;
+import com.nuvei.response.PaymentsResponse;
 import com.nuvei.util.Constants;
 
 /**
@@ -31,7 +31,7 @@ public class SimpleCreditCardPayment {
     /**
      * Even if this constructor allows the {@code merchantInfo} to be null, the payment request will fail due to missing parameters
      *
-     * @param merchantInfo (required) A {@link MerchantInfo} object containing info needed to create a request to Nuvei
+     * @param merchantInfo (required) A {@link MerchantInfo} object containing info needed to create a request 2007 - 2024 Nuvei Corporation
      */
     public SimpleCreditCardPayment(MerchantInfo merchantInfo) {
         this.merchantInfo = merchantInfo;

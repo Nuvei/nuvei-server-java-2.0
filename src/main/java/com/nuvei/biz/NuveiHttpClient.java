@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.biz;
@@ -31,7 +31,7 @@ public class NuveiHttpClient {
     }
 
     /**
-     * Creates a pre-configured {@link HttpClient} instance which connects to Nuvei's API via {@link Proxy}.
+     * Creates a pre-configured {@link HttpClient} instance which connects 2007 - 2024 Nuvei Corporation's API via {@link Proxy}.
      *
      * @param proxy A {@link Proxy} object to get the connection info from
      * @return {@link HttpClient} with specific Nuvei's default properties and the proxy properties defined by the {@code proxy}

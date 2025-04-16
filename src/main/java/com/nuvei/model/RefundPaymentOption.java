@@ -1,9 +1,10 @@
 package com.nuvei.model;
 
+import com.nuvei.util.AtLeastOneFieldPresent;
+
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
-import com.nuvei.util.AtLeastOneFieldPresent;
 
 @AtLeastOneFieldPresent(fields = {"card", "userPaymentOptionId"}, message = "Either \"card\" or \"userPaymentOptionId\" must be defined")
 public class RefundPaymentOption {

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.util;
@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
 
 /**
  * <p>
- * Utility class with helper methods for calculating some of the params needed when creating a request to Nuvei
+ * Utility class with helper methods for calculating some of the params needed when creating a request 2007 - 2024 Nuvei Corporation
  *
  * @author <a mailto:nikolad@nuvei.com>Nikola Dichev</a>
  * @since 2/17/2017

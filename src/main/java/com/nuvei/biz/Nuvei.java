@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.biz;
@@ -121,6 +121,7 @@ public class Nuvei {
      * @param shippingTrackingDetails Holds information about shippingTrackingDetails.
      * @param cvvNotUsed             Flag if CVV is not used
      * @param serviceDueDate         Subscription end date
+     * @param digitalAssetType       Digital currency transaction identifier.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
      *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
@@ -133,8 +134,8 @@ public class Nuvei {
                                    String customData, String relatedTransactionId, Constants.TransactionType transactionType, Boolean autoPayment3D,
                                    String isMoto, SubMerchant subMerchant, String rebillingType, String authenticationOnlyType, String userId,
                                    ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion, String isPartialApproval, String paymentFlow,
-                                   String redirectFlowUITheme, String aftOverride, RecipientDetails recipientDetails, CompanyDetails companyDetails,
-                                   ShippingTrackingDetails shippingTrackingDetails, String cvvNotUsed, String serviceDueDate) throws NuveiException {
+                                   String redirectFlowUITheme, String aftOverride, RecipientDetails recipientDetails, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails,
+                                   String cvvNotUsed, String serviceDueDate, String digitalAssetType) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
@@ -142,7 +143,7 @@ public class Nuvei {
                 isRebilling, currency, amount, amountDetails, items, deviceDetails, userDetails, shippingAddress, billingAddress,
                 dynamicDescriptor, merchantDetails, addendums, urlDetails, customSiteName, productId, customData, relatedTransactionId,
                 transactionType, autoPayment3D, isMoto, subMerchant, rebillingType, authenticationOnlyType, userId, externalSchemeDetails, currencyConversion, isPartialApproval, paymentFlow,
-                redirectFlowUITheme, aftOverride, recipientDetails, companyDetails, shippingTrackingDetails, cvvNotUsed, serviceDueDate);
+                redirectFlowUITheme, aftOverride, recipientDetails, companyDetails, shippingTrackingDetails, cvvNotUsed, serviceDueDate, digitalAssetType);
 
         return (PaymentResponse) requestExecutor.execute(request);
     }
@@ -182,13 +183,13 @@ public class Nuvei {
     public InitPaymentResponse initPayment(String userTokenId, String clientUniqueId, String clientRequestId, String currency, String amount,
                                            DeviceDetails deviceDetails, InitPaymentPaymentOption paymentOption, UrlDetails urlDetails, String customData,
                                            UserAddress billingAddress, String userId, String aftOverride,
-                                           RecipientDetails recipientDetails) throws NuveiException {
+                                           RecipientDetails recipientDetails, String relatedTransactionId) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
         NuveiBaseRequest request = requestBuilder.getInitPaymentRequest(sessionToken, userTokenId, clientUniqueId, clientRequestId, currency,
                 amount, deviceDetails, paymentOption, urlDetails, customData, billingAddress, merchantInfo, userId, aftOverride,
-                 recipientDetails);
+                 recipientDetails, relatedTransactionId);
 
         return (InitPaymentResponse) requestExecutor.execute(request);
     }
@@ -240,9 +241,10 @@ public class Nuvei {
      * @param currencyConversion     Used to specify currency conversion details
      * @param openAmount             Defines minimum and maximum allowed amount for the order
      * @param aftOverride            Used to instruct the gateway that this transaction should not be marked as AFT. Accepted values: "0" / "1".
-     * @return Passes through the response from Nuvei's REST API.
+     * @param digitalAssetType       Digital currency transaction identifier.
+     * @return Passes through the response from Safecharge's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                          method is not invoked beforehand SafechargeConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public OpenOrderResponse openOrder(String userTokenId, String clientRequestId, String clientUniqueId, String customSiteName, String productId,
@@ -253,7 +255,8 @@ public class Nuvei {
                                        Addendums addendums, String customData, Boolean autoPayment3D, String isMoto, String authenticationOnlyType,
                                        SubMerchant subMerchant, Integer isRebilling, String rebillingType, String preventOverride, String userId,
                                        String isPartialApproval, ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion,
-                                       OpenAmount openAmount, String aftOverride, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails)  throws NuveiException {
+                                       OpenAmount openAmount, String aftOverride, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails,
+                                       String digitalAssetType) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
@@ -261,7 +264,8 @@ public class Nuvei {
                 paymentOption, transactionType, currency, amount, items, deviceDetails, userDetails, shippingAddress, billingAddress,
                 dynamicDescriptor, merchantDetails, urlDetails, userTokenId, clientUniqueId, userPaymentOption, paymentMethod,
                 amountDetails, addendums, customData, autoPayment3D, isMoto, authenticationOnlyType, subMerchant, isRebilling, rebillingType,
-                preventOverride, userId, isPartialApproval, externalSchemeDetails, currencyConversion, openAmount, aftOverride, companyDetails, shippingTrackingDetails);
+                preventOverride, userId, isPartialApproval, externalSchemeDetails, currencyConversion, openAmount, aftOverride, companyDetails,
+                shippingTrackingDetails, digitalAssetType);
 
         return (OpenOrderResponse) requestExecutor.execute(request);
     }
@@ -440,20 +444,22 @@ public class Nuvei {
      *                             Required if you wish to use the paymentOptionId field for future charging of this user without re-collecting the payment details
      * @param paymentOption        This class represents the details about the payment method.
      *                             Can have either card, alternativePaymentMethod, or userPaymentOptionId.
-     * @return Passes through the response from Nuvei's REST API.
+     * @param digitalAssetType     Digital currency transaction identifier.
+     * @return Passes through the response from Safecharge's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                          method is not invoked beforehand SafechargeConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public Verify3dResponse verify3d(String clientUniqueId, String clientRequestId, String amount, String currency, UserAddress billingAddress,
                                      String customData, String customSiteName, MerchantDetails merchantDetails, String relatedTransactionId,
-                                     SubMerchant subMerchant, String userId, String userTokenId, Verify3dPaymentOption paymentOption) throws NuveiException {
+                                     SubMerchant subMerchant, String userId, String userTokenId, Verify3dPaymentOption paymentOption,
+                                     String digitalAssetType) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
         NuveiBaseRequest request = requestBuilder.getVerify3dRequest(sessionToken, merchantInfo, clientUniqueId, clientRequestId, amount,
                 currency, billingAddress, customData, customSiteName, merchantDetails, relatedTransactionId, subMerchant, userId,
-                userTokenId, paymentOption);
+                userTokenId, paymentOption, digitalAssetType);
 
         return (Verify3dResponse) requestExecutor.execute(request);
     }
@@ -505,9 +511,10 @@ public class Nuvei {
      *                               due to a consumer’s lack of funds within the desired payment method.
      * @param externalSchemeDetails  Used to provide original transactionId for the initial payment as originated in external system and card brand.
      * @param currencyConversion     Used to specify currency conversion details
-     * @return Passes through the response from Nuvei's REST API.
+     * @param digitalAssetType       Digital currency transaction identifier.
+     * @return Passes through the response from Safecharge's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
-     *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
+     *                                          method is not invoked beforehand SafechargeConfigurationException exception will be thrown.
      * @throws NuveiException              if there are request related problems.
      */
     public Authorize3dResponse authorize3d(String userTokenId, String clientUniqueId, String clientRequestId, PaymentOption paymentOption,
@@ -518,7 +525,7 @@ public class Nuvei {
                                            String customSiteName, String productId, String customData, String relatedTransactionId,
                                            Constants.TransactionType transactionType, Boolean autoPayment3D, SubMerchant subMerchant,
                                            String userId, ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion,
-                                           String isPartialApproval) throws NuveiException {
+                                           String isPartialApproval, String digitalAssetType) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
@@ -526,7 +533,7 @@ public class Nuvei {
                 clientRequestId, paymentOption, isRebilling, currency, amount, amountDetails, items, deviceDetails, userDetails,
                 shippingAddress, billingAddress, dynamicDescriptor, merchantDetails, addendums, urlDetails, customSiteName,
                 productId, customData, relatedTransactionId, transactionType, autoPayment3D, subMerchant, userId, externalSchemeDetails,
-                currencyConversion, isPartialApproval);
+                currencyConversion, isPartialApproval, digitalAssetType);
 
         return (Authorize3dResponse) requestExecutor.execute(request);
     }
@@ -659,7 +666,8 @@ public class Nuvei {
      * @param subMethodDetails      Details about submethod
      * @param cardData              An alternative to sending the userPaymentOptionId for card payouts.
      * @param deviceDetails         Information about client device
-     * @param currencyConversion     Holds information about currency conversion type (DCC / MCP) and amount.
+     * @param currencyConversion    Holds information about currency conversion type (DCC / MCP) and amount.
+     * @param digitalAssetType      Digital currency transaction identifier.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiException
      */
@@ -667,7 +675,7 @@ public class Nuvei {
                                  UserPaymentOption userPaymentOption, String comment, DynamicDescriptor dynamicDescriptor,
                                  MerchantDetails merchantDetails, UrlDetails urlDetails, SubMethodDetails subMethodDetails,
                                  CardData cardData, DeviceDetails deviceDetails, UserDetails userDetails, CompanyDetails companyDetails,
-                                 CurrencyConversion currencyConversion)
+                                 CurrencyConversion currencyConversion, String digitalAssetType)
             throws NuveiException {
 
         ensureMerchantInfoAndSessionTokenNotNull();
@@ -676,7 +684,7 @@ public class Nuvei {
         PayoutRequest request = requestBuilder.getPayoutRequest(sessionToken, merchantInfo,
                 userTokenId, clientUniqueId, clientRequestId, amount, currency,userPaymentOption, comment, dynamicDescriptor,
                 merchantDetails, urlDetails, subMethodDetails, cardData, deviceDetails, userDetails, companyDetails,
-                currencyConversion);
+                currencyConversion, digitalAssetType);
 
         return (PayoutResponse) requestExecutor.execute(request);
     }

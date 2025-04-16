@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request.builder;
@@ -52,6 +52,7 @@ public abstract class NuveiOrderBuilder<T extends NuveiOrderBuilder<T>> extends 
     private String clientUniqueId;
     private AmountDetails amountDetails;
     private ShippingTrackingDetails shippingTrackingDetails;
+    private String digitalAssetType;
 
     /**
      * Adds amount to the request.
@@ -484,6 +485,18 @@ public abstract class NuveiOrderBuilder<T extends NuveiOrderBuilder<T>> extends 
         return (T) this;
     }
 
+
+    /**
+     * Adds digitalAssetType to the request.
+     *
+     * @param digitalAssetType       Digital currency transaction identifier.
+     * @return this object
+    */
+    public T addDigitalAssetType(String digitalAssetType) {
+        this.digitalAssetType = digitalAssetType;
+        return (T) this;
+    }
+
     /**
      * Adds the order details data, collected by this builder.
      *
@@ -512,6 +525,7 @@ public abstract class NuveiOrderBuilder<T extends NuveiOrderBuilder<T>> extends 
         nuveiOrderDetailsRequest.setClientUniqueId(clientUniqueId);
         nuveiOrderDetailsRequest.setAmountDetails(amountDetails);
         nuveiOrderDetailsRequest.setShippingTrackingDetails(shippingTrackingDetails);
+        nuveiOrderDetailsRequest.setDigitalAssetType(digitalAssetType);
 
         nuveiOrderDetailsRequest.setChecksum(
                 ChecksumUtils.calculateChecksum(nuveiOrderDetailsRequest, merchantInfo != null ? merchantInfo.getMerchantKey() : "",

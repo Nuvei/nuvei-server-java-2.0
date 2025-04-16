@@ -1,5 +1,7 @@
+
+
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.biz;
@@ -10,6 +12,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -48,12 +51,15 @@ import com.nuvei.response.Verify3dResponse;
 import com.nuvei.response.VoidTransactionResponse;
 import com.nuvei.util.Constants;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
+
 
 public class NuveiTest {
 
@@ -109,10 +115,12 @@ public class NuveiTest {
         when(executor.execute(any(PaymentRequest.class))).thenReturn(paymentResponse);
 
         sut.initialize("merchantKey", "id", "siteId", "localhost", Constants.HashAlgorithm.SHA256);
-        PaymentResponse response = sut.payment("userTokenId", "clientUniqueId", "clientRequestId", null, null, "BGN", "11", null, null,
-                null, null, null, null, null, null, null, null, null, null,
-                null, null, null, null, null, null, null, null, null,
-                null, null, null, null, null, null, null, null, null, null, null);
+        PaymentResponse response = sut.payment("userTokenId", "clientUniqueId", "clientRequestId", null,
+                null, "BGN", "11", null, null, null, null, null, null,
+                null, null, null, null, null, null,null, null,
+                null, null, null, null, null, null, null,null,
+                null, null, null, null, null, null, null,
+                null, null, null, null);
 
         verify(executor).execute(any(GetSessionTokenRequest.class));
         verify(executor).execute(any(PaymentRequest.class));
@@ -127,10 +135,13 @@ public class NuveiTest {
         exception.expect(NuveiConfigurationException.class);
         exception.expectMessage("Missing mandatory info for execution of payments! Please run initialization method before creating payments.");
 
-        sut.payment("userTokenId", "clientUniqueId", "clientRequestId", null, null, "BGN", "11", null, null,
-                null, null, null, null, null, null, null, null, null, null,
-                null, null, null, null, null, null, null, null, null, null,
-                null, null, null, null, null, null, null, null, null, null);
+        sut.payment("userTokenId", "clientUniqueId", "clientRequestId", null,
+                null, "BGN", "11", null, null, null, null,
+                null, null, null, null, null, null,
+                null, null, null, null, null, null,
+                null, null, null, null, null, null,
+                null, null, null, null, null, null,
+                null, null, null, null, null);
     }
 
     @Test
@@ -145,7 +156,7 @@ public class NuveiTest {
 
         sut.initialize("merchantKey", "id", "siteId", "localhost", Constants.HashAlgorithm.SHA256);
         InitPaymentResponse response = sut.initPayment("userTokenId", "clientUniqueId", "clientRequestId", "BGN", "11",
-                null, null, null, null, null, null, null, null);
+                null, null, null, null, null, null, null, null, null);
 
         verify(executor).execute(any(GetSessionTokenRequest.class));
         verify(executor).execute(any(InitPaymentRequest.class));
@@ -161,7 +172,7 @@ public class NuveiTest {
         exception.expectMessage("Missing mandatory info for execution of payments! Please run initialization method before creating payments.");
 
         sut.initPayment("userTokenId", "clientUniqueId", "clientRequestId", "BGN", "11",
-                null, null, null, null, null, null, null, null);
+                null, null, null, null, null, null, null, null, null);
     }
 
     @Test
@@ -178,7 +189,7 @@ public class NuveiTest {
         OpenOrderResponse response = sut.openOrder("userTokenId", "clientRequestId", "clientUniqueId", null, null, null, null, "BGN", "11", null,
                 null, null, null, null, null, null, null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null, null,
-                null, null, null, null, null, null);
+                null, null, null, null, null, null, null);
 
         verify(executor).execute(any(GetSessionTokenRequest.class));
         verify(executor).execute(any(OpenOrderRequest.class));
@@ -196,7 +207,7 @@ public class NuveiTest {
         sut.openOrder("userTokenId", "clientRequestId", "clientUniqueId", null, null, null, null, "BGN", "11", null,
                 null, null, null, null, null, null, null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null,
-                null, null, null, null, null, null, null);
+                null, null, null, null, null, null, null, null);
     }
 
     @Test
@@ -358,7 +369,7 @@ public class NuveiTest {
 
         sut.initialize("merchantKey", "id", "siteId", "localhost", Constants.HashAlgorithm.SHA256);
         Verify3dResponse response = sut.verify3d("clientUniqueId", "clienRequestId", "11", "BGN", null, null, null, null,
-                "relatedTransaction", null, null, null, null);
+                "relatedTransaction", null, null, null, null, null);
 
         verify(executor).execute(any(GetSessionTokenRequest.class));
         verify(executor).execute(any(Verify3dRequest.class));
@@ -374,7 +385,7 @@ public class NuveiTest {
         exception.expectMessage("Missing mandatory info for execution of payments! Please run initialization method before creating payments.");
 
         sut.verify3d("clientUniqueId", "clienRequestId", "11", "BGN", null, null, null, null,
-                "relatedTransaction", null, null, null, null);
+                "relatedTransaction", null, null, null, null, null);
     }
 
     @Test
@@ -391,7 +402,7 @@ public class NuveiTest {
         Authorize3dResponse response = sut.authorize3d("usertTokenId", "clientUniqueId", "clientRequestId", null, null, "BGN", "11",
                 null, null, null, null, null, null, null, null, null, null,
                 null, null, null, "relatedTransaction", null, null, null, null, null, null,
-                null);
+                null, null);
 
         verify(executor).execute(any(GetSessionTokenRequest.class));
         verify(executor).execute(any(Authorize3dRequest.class));
@@ -409,7 +420,7 @@ public class NuveiTest {
         sut.authorize3d("usertTokenId", "clientUniqueId", "clientRequestId", null, null, "BGN", "11",
                 null, null, null, null, null, null, null, null, null, null,
                 null, null, null, "relatedTransaction", null, null, null, null, null,
-                null, null);
+                null, null, null);
     }
 
     @Test
