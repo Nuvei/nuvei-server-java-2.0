@@ -1,7 +1,7 @@
 
 
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.response;

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request;
@@ -26,7 +26,7 @@ public class CancelSubscriptionRequest
         extends NuveiRequest {
 
     /**
-     * The ID of the user’s active subscription in the Nuvei’s system.
+     * The ID of the user’s active subscription in the Nuvei's system.
      */
     @NotNull(message = "subscriptionId mustn't be null")
     @Size(max = 20, message = "subscriptionId value size must be up to 20 characters")
@@ -82,7 +82,7 @@ public class CancelSubscriptionRequest
         /**
          * Adds subscription Id to the request.
          *
-         * @param subscriptionId the ID of the user’s active subscription in the Nuvei’s system.
+         * @param subscriptionId the ID of the user’s active subscription in the Nuvei's system.
          * @return this object
          */
         public CancelSubscriptionRequest.Builder addSubscriptionId(String subscriptionId) {

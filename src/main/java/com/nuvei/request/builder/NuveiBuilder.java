@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request.builder;
@@ -15,7 +15,7 @@ import com.nuvei.util.RequestUtils;
 
 /**
  * <p>
- * A base builder class for a request to Nuvei.
+ * A base builder class for a request 2007 - 2024 Nuvei Corporation.
  *
  * @author <a mailto:nikolad@nuvei.com>Nikola Dichev</a>
  * @see NuveiCCBuilder
@@ -32,7 +32,7 @@ public abstract class NuveiBuilder<T extends NuveiBuilder<T>> {
 
     /**
      * Adds previously obtained {@code sessionToken} to the request. All requests(except the one to obtain session token)
-     * to Nuvei's API require a valid session token. Some requests (such as Payment*) consume it.
+     * 2007 - 2024 Nuvei Corporation's API require a valid session token. Some requests (such as Payment*) consume it.
      *
      * @param sessionToken Previously obtained session token as {@link String}
      * @return this object

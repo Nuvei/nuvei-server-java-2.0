@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.util;
@@ -19,7 +19,7 @@ import com.nuvei.request.NuveiBaseRequest;
 
 /**
  * <p>
- * Utility class for validating the request to Nuvei
+ * Utility class for validating the request 2007 - 2024 Nuvei Corporation
  *
  * @author <a mailto:nikolad@nuvei.com>Nikola Dichev</a>
  * @since 2/24/2017

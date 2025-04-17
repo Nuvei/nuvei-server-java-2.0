@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.model;
@@ -29,7 +29,7 @@ public class MerchantBaseInfo {
     /**
      * Constructs a {@link MerchantInfo} object with data from the params.
      *
-     * @param merchantKey    The secret merchant key obtained by the Merchant during integration process with nuvei
+     * @param merchantKey    The secret merchant key obtained by the Merchant during integration process with Nuvei
      * @param serverHost     The Nuvei's server address to send the request to
      * @param hashAlgorithm  The hashing algorithm used to generate the checksum
      */

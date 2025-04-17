@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.test.workflow;
@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.nuvei.request.*;
+import com.nuvei.response.NuveiResponse;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -15,14 +17,8 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import com.nuvei.model.MerchantInfo;
-import com.nuvei.request.GetOrderDetailsRequest;
-import com.nuvei.request.GetSessionTokenRequest;
-import com.nuvei.request.OpenOrderRequest;
-import com.nuvei.request.PaymentAPMRequest;
 import com.nuvei.request.NuveiBaseRequest;
-import com.nuvei.request.UpdateOrderRequest;
 import com.nuvei.response.OpenOrderResponse;
-import com.nuvei.response.NuveiResponse;
 import com.nuvei.response.UpdateOrderResponse;
 import com.nuvei.test.BaseTest;
 import com.nuvei.util.Constants;
@@ -53,7 +49,7 @@ public class APMWorkflowTest extends BaseTest {
         NuveiBaseRequest nuveiRequest = GetSessionTokenRequest.builder()
                 .addMerchantInfo(merchantInfo)
                 .build();
-        NuveiResponse response = (NuveiResponse)nuveiRequestExecutor.executeRequest(nuveiRequest);
+        NuveiResponse response = (NuveiResponse) nuveiRequestExecutor.executeRequest(nuveiRequest);
 
         Assert.assertTrue(response != null);
         Assert.assertTrue(Constants.APIResponseStatus.SUCCESS.equals(response.getStatus()));
@@ -118,7 +114,7 @@ public class APMWorkflowTest extends BaseTest {
                 .addOrderId(orderId)
                 .addSessionToken(sessionToken)
                 .build();
-        NuveiResponse response = (NuveiResponse)nuveiRequestExecutor.executeRequest(nuveiRequest);
+        NuveiResponse response = (NuveiResponse) nuveiRequestExecutor.executeRequest(nuveiRequest);
 
         Assert.assertTrue(response != null);
         Assert.assertTrue(Constants.APIResponseStatus.SUCCESS.equals(response.getStatus()));

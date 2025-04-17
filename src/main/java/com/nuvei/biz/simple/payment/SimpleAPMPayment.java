@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.biz.simple.payment;
@@ -9,8 +9,8 @@ import java.util.Map;
 import com.nuvei.biz.NuveiRequestExecutor;
 import com.nuvei.model.MerchantInfo;
 import com.nuvei.request.GetSessionTokenRequest;
-import com.nuvei.request.PaymentAPMRequest;
 import com.nuvei.request.NuveiBaseRequest;
+import com.nuvei.request.PaymentAPMRequest;
 import com.nuvei.response.PaymentsResponse;
 import com.nuvei.response.NuveiResponse;
 import com.nuvei.util.Constants;
@@ -32,7 +32,7 @@ public class SimpleAPMPayment {
     /**
      * Even if this constructor allows the {@code merchantInfo} to be null, the payment request will fail due to missing parameters
      *
-     * @param merchantInfo (required) A {@link MerchantInfo} object containing info needed to create a request to Nuvei
+     * @param merchantInfo (required) A {@link MerchantInfo} object containing info needed to create a request 2007 - 2024 Nuvei Corporation
      */
     public SimpleAPMPayment(MerchantInfo merchantInfo) {
         this.merchantInfo = merchantInfo;

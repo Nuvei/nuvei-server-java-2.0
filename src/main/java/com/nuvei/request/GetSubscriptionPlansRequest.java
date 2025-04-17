@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request;
@@ -12,9 +12,9 @@ import com.nuvei.util.ValidationUtils;
 /**
  * <p>
  * Request to obtain available subscription plans for the merchant.
- * Creating and updating subscription plans is possible using CPanel, Nuvei’s back-office tool.
+ * Creating and updating subscription plans is possible using CPanel, Nuvei's back-office tool.
  * <p>
- * For more information, please contact Nuvei’s Integration Team at <a mailto:integration@nuvei.com />integration@nuvei.com</a>
+ * For more information, please contact Nuvei's Integration Team at <a mailto:integration@nuvei.com />integration@nuvei.com</a>
  *
  * @author <a mailto:nikolad@nuvei.com>Nikola Dichev</a>
  * @see CreateSubscriptionRequest

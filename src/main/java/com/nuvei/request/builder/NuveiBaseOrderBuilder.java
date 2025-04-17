@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request.builder;
@@ -472,7 +472,7 @@ public abstract class NuveiBaseOrderBuilder<T extends NuveiBaseOrderBuilder<T>> 
     /**
      * Adds the order details data, collected by this builder.
      *
-     * @param NuveiOrderDetailsRequest an already created request of type T
+     * @param nuveiOrderDetailsRequest an already created request of type T
      * @param <S>                           type parameter
      * @return this object
      */

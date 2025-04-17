@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.request.builder;
@@ -14,7 +14,7 @@ import com.nuvei.util.RequestUtils;
 
 /**
  * <p>
- * A base builder class for a request to Nuvei.
+ * A base builder class for a request 2007 - 2024 Nuvei Corporation.
  *
  * @author <a mailto:bozhidarsh@nuvei.com>Bozhidar Shumanov</a>
  * @see NuveiBuilder
@@ -29,7 +29,7 @@ public abstract class NuveiBaseBuilder<T extends NuveiBaseBuilder<T>> {
 
     /**
      * Adds previously obtained {@code sessionToken} to the request. All requests(except the one to obtain session token)
-     * to Nuvei's API require a valid session token. Some requests (such as Payment*) consume it.
+     * 2007 - 2024 Nuvei Corporation's API require a valid session token. Some requests (such as Payment*) consume it.
      *
      * @param sessionToken Previously obtained session token as {@link String}
      * @return this object
@@ -92,7 +92,7 @@ public abstract class NuveiBaseBuilder<T extends NuveiBaseBuilder<T>> {
     /**
      * Adds the common data, collected by this builder. The intent of this method is to be used from the derived classes.
      *
-     * @param NuveiBaseRequest an already created request of type <{@code T} extends {@link NuveiBaseRequest}>
+     * @param nuveiBaseRequest an already created request of type <{@code T} extends {@link NuveiBaseRequest}>
      * @param <S>               type parameter
      * @return the passed {@code nuveiBaseRequest} filled with the data from this builder
      */

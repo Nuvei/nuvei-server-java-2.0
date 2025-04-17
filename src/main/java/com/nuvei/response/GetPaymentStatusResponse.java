@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.response;
@@ -42,6 +42,8 @@ public class GetPaymentStatusResponse extends NuveiResponse {
     private String issuerDeclineCode;
 
     private String issuerDeclineReason;
+
+    private String externalSchemeTransactionId;
 
     public String getCustomData() {
         return customData;
@@ -177,5 +179,13 @@ public class GetPaymentStatusResponse extends NuveiResponse {
 
     public void setIssuerDeclineReason(String issuerDeclineReason) {
         this.issuerDeclineReason = issuerDeclineReason;
+    }
+
+    public String getExternalSchemeTransactionId() {
+        return externalSchemeTransactionId;
+    }
+
+    public void setExternalSchemeTransactionId(String externalSchemeTransactionId) {
+        this.externalSchemeTransactionId = externalSchemeTransactionId;
     }
 }

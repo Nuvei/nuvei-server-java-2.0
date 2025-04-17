@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 - 2024 Nuvei International Group Limited.
+ * Copyright (C) 2007 - 2024 Nuvei Corporation.
  */
 
 package com.nuvei.test.workflow.paymentCC;
@@ -10,6 +10,8 @@ import static org.mockito.Mockito.when;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
+import com.nuvei.biz.NuveiRequestExecutor;
+import com.nuvei.request.NuveiBaseRequest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -17,10 +19,8 @@ import org.mockito.Mockito;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.nuvei.biz.NuveiRequestExecutor;
 import com.nuvei.model.MerchantInfo;
 import com.nuvei.request.GetSessionTokenRequest;
-import com.nuvei.request.NuveiBaseRequest;
 import com.nuvei.response.GetSessionTokenResponse;
 import com.nuvei.util.Constants;
 
