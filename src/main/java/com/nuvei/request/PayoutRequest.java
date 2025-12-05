@@ -90,6 +90,8 @@ public class PayoutRequest extends NuveiRequest {
 
     private String digitalAssetType;
 
+    private String conversionAffiliateCountryCode;
+
     public static PayoutRequest.Builder builder() {
         return new PayoutRequest.Builder();
     }
@@ -222,6 +224,14 @@ public class PayoutRequest extends NuveiRequest {
         this.digitalAssetType = digitalAssetType;
     }
 
+    public String getConversionAffiliateCountryCode() {
+        return conversionAffiliateCountryCode;
+    }
+
+    public void setConversionAffiliateCountryCode(String conversionAffiliateCountryCode) {
+        this.conversionAffiliateCountryCode = conversionAffiliateCountryCode;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("PayoutRequest{");
@@ -241,6 +251,7 @@ public class PayoutRequest extends NuveiRequest {
         sb.append(", companyDetails=").append(companyDetails);
         sb.append(", currencyConversion=").append(currencyConversion)
         .append(", digitalAssetType=").append(digitalAssetType);
+        sb.append(", conversionAffiliateCountryCode=").append(conversionAffiliateCountryCode);
         sb.append('}');
         return sb.toString();
     }
@@ -263,6 +274,7 @@ public class PayoutRequest extends NuveiRequest {
         private CompanyDetails companyDetails;
         private CurrencyConversion currencyConversion;
         private String digitalAssetType;
+        private String conversionAffiliateCountryCode;
 
         /**
          * @param userTokenId
@@ -389,6 +401,11 @@ public class PayoutRequest extends NuveiRequest {
             return this;
         }
 
+        public Builder addConversionAffiliateCountryCode(String conversionAffiliateCountryCode) {
+            this.conversionAffiliateCountryCode = conversionAffiliateCountryCode;
+            return this;
+        }
+
         /**
          * Builds the request.
          *
@@ -413,6 +430,7 @@ public class PayoutRequest extends NuveiRequest {
             request.setCompanyDetails(companyDetails);
             request.setCurrencyConversion(currencyConversion);
             request.setDigitalAssetType(digitalAssetType);
+            request.setConversionAffiliateCountryCode(conversionAffiliateCountryCode);
             return ValidationUtils.validate(super.build(request));
         }
     }

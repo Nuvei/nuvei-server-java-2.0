@@ -120,7 +120,7 @@ public class NuveiTest {
                 null, null, null, null, null, null,null, null,
                 null, null, null, null, null, null, null,null,
                 null, null, null, null, null, null, null,
-                null, null, null, null);
+                null, null, null, null, null);
 
         verify(executor).execute(any(GetSessionTokenRequest.class));
         verify(executor).execute(any(PaymentRequest.class));
@@ -141,7 +141,7 @@ public class NuveiTest {
                 null, null, null, null, null, null,
                 null, null, null, null, null, null,
                 null, null, null, null, null, null,
-                null, null, null, null, null);
+                null, null, null, null, null, null);
     }
 
     @Test
@@ -251,7 +251,7 @@ public class NuveiTest {
 
         sut.initialize("merchantKey", "id", "siteId", "localhost", Constants.HashAlgorithm.SHA256);
         VoidTransactionResponse response = sut.voidTransaction("clientRequestId", "relatedTransactioId", "11", "BGN", "authCode",
-                null, null, null, null, null, null, null);
+                null, null, null, null, null, null, null, null);
 
         verify(executor).execute(any(GetSessionTokenRequest.class));
         verify(executor).execute(any(VoidTransactionRequest.class));
@@ -267,7 +267,7 @@ public class NuveiTest {
         exception.expectMessage("Missing mandatory info for execution of payments! Please run initialization method before creating payments.");
 
         sut.voidTransaction("clientRequestId", "relatedTransactionId", "11", "BGN", "authCode",
-                null, null, null, null, null, null, null);
+                null, null, null, null, null, null, null, null);
     }
 
     @Test
@@ -313,7 +313,7 @@ public class NuveiTest {
 
         sut.initialize("merchantKey", "id", "siteId", "localhost", Constants.HashAlgorithm.SHA256);
         RefundTransactionResponse response = sut.refundTransaction("clientUniqueId", "clientRequestId", null, "11", "authCode", null, "BGN",
-                null, null, null, "relatedTransactioId", null, null, null, null);
+                null, null, null, "relatedTransactioId", null, null, null, null, null);
 
         verify(executor).execute(any(GetSessionTokenRequest.class));
         verify(executor).execute(any(RefundTransactionRequest.class));
@@ -338,7 +338,7 @@ public class NuveiTest {
         refundPaymentOption.setCard(new CardData());
         RefundTransactionResponse response = sut.refundTransaction("clientUniqueId", "clientRequestId", null, "11",
                 "authCode", null, "BGN",
-                null, null, null, null, null, null, refundPaymentOption, null);
+                null, null, null, null, null, null, refundPaymentOption, null, null);
 
         verify(executor).execute(any(GetSessionTokenRequest.class));
         verify(executor).execute(any(RefundTransactionRequest.class));
@@ -354,7 +354,7 @@ public class NuveiTest {
         exception.expectMessage("Missing mandatory info for execution of payments! Please run initialization method before creating payments.");
 
         sut.refundTransaction("clientUniqueId", "clientRequestId", null, "11", "authCode", null, "BGN",
-                null, null, null, "relatedTransactionId", null, null, null, null);
+                null, null, null, "relatedTransactionId", null, null, null, null, null);
     }
 
     @Test
