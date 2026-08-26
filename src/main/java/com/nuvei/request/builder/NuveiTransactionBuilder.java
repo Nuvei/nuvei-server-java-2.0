@@ -36,6 +36,7 @@ public abstract class NuveiTransactionBuilder<T extends NuveiTransactionBuilder<
     private SubMerchant subMerchant;
     private CompanyDetails companyDetails;
     private String relatedTransactionId;
+    private String conversionAffiliateCountryCode;
 
     /**
      * Adds amount to the request.
@@ -173,6 +174,12 @@ public abstract class NuveiTransactionBuilder<T extends NuveiTransactionBuilder<
         return (T) this;
     }
 
+    public T addConversionAffiliateCountryCode(String conversionAffiliateCountryCode) {
+        this.conversionAffiliateCountryCode = conversionAffiliateCountryCode;
+        return (T) this;
+    }
+
+
 
 
     /**
@@ -200,6 +207,7 @@ public abstract class NuveiTransactionBuilder<T extends NuveiTransactionBuilder<
                 ChecksumUtils.calculateChecksum(nuveiTransactionRequest, merchantInfo != null ? merchantInfo.getMerchantKey() : "",
                         Constants.CHARSET_UTF8, merchantInfo != null ? merchantInfo.getHashAlgorithm() : null));
         nuveiTransactionRequest.setCompanyDetails(companyDetails);
+        nuveiTransactionRequest.setConversionAffiliateCountryCode(conversionAffiliateCountryCode);
 
         return nuveiTransactionRequest;
     }

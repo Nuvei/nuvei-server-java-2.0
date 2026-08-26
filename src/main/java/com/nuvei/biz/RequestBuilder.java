@@ -30,7 +30,8 @@ public class RequestBuilder {
                                                    String userId, ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion,
                                                    String isPartialApproval, String paymentFlow, String redirectFlowUITheme, String aftOverride,
                                                    RecipientDetails recipientDetails, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails,
-                                                   String cvvNotUsed, String serviceDueDate, String digitalAssetType) {
+                                                   String cvvNotUsed, String serviceDueDate, String digitalAssetType, String conversionAffiliateCountryCode
+) {
         return PaymentRequest.builder()
                 .addSessionToken(sessionToken)
                 .addIsRebilling(isRebilling)
@@ -74,6 +75,7 @@ public class RequestBuilder {
                 .addCvvNotUsed(cvvNotUsed)
                 .addServiceDueDate(serviceDueDate)
                 .addDigitalAssetType(digitalAssetType)
+                .addConversionAffiliateCountryCode(conversionAffiliateCountryCode)
                 .build();
     }
 
@@ -172,7 +174,8 @@ public class RequestBuilder {
     public NuveiBaseRequest getVoidTransactionRequest(String sessionToken, String clientRequestId, MerchantInfo merchantInfo,
                                                       String relatedTransactionId, String amount, String currency, String authCode,
                                                       String clientUniqueId, UrlDetails urlDetails, String customSiteName,
-                                                      String productId, String customData, String comment, SubMerchant subMerchant) {
+                                                      String productId, String customData, String comment, SubMerchant subMerchant,
+                                                      String conversionAffiliateCountryCode) {
         return VoidTransactionRequest.builder()
                 .addMerchantInfo(merchantInfo)
                 .addSessionToken(sessionToken)
@@ -188,6 +191,7 @@ public class RequestBuilder {
                 .addClientRequestId(clientRequestId)
                 .addAuthCode(authCode)
                 .addSubMerchant(subMerchant)
+                .addConversionAffiliateCountryCode(conversionAffiliateCountryCode)
                 .build();
     }
 
@@ -223,7 +227,8 @@ public class RequestBuilder {
                                                              String clientRequestId, UrlDetails urlDetails, String amount, String authCode,
                                                              String comment, String currency, String customData, String customSiteName,
                                                              String productId, String relatedTransactionId, SubMerchant subMerchant,
-                                                             CompanyDetails companyDetails, RefundPaymentOption refundPaymentOption, String userTokenId) {
+                                                             CompanyDetails companyDetails, RefundPaymentOption refundPaymentOption, String userTokenId,
+                                                             String conversionAffiliateCountryCode ) {
         return RefundTransactionRequest.builder()
                 .addSessionToken(sessionToken)
                 .addMerchantInfo(merchantInfo)
@@ -242,6 +247,7 @@ public class RequestBuilder {
                 .addCompanyDetails(companyDetails)
                 .addRefundPaymentOption(refundPaymentOption)
                 .addUserTokenId(userTokenId)
+                .addConversionAffiliateCountryCode(conversionAffiliateCountryCode)
                 .build();
     }
 
@@ -379,7 +385,7 @@ public class RequestBuilder {
                                 UserPaymentOption userPaymentOption, String comment, DynamicDescriptor dynamicDescriptor,
                                 MerchantDetails merchantDetails, UrlDetails urlDetails, SubMethodDetails subMethodDetails,
                                 CardData cardData, DeviceDetails deviceDetails, UserDetails userDetails, CompanyDetails companyDetails,
-                                CurrencyConversion currencyConversion, String digitalAssetType) {
+                                CurrencyConversion currencyConversion, String digitalAssetType, String conversionAffiliateCountryCode) {
         return PayoutRequest.builder()
                 .addSessionToken(sessionToken)
                 .addMerchantInfo(merchantInfo)
@@ -399,6 +405,7 @@ public class RequestBuilder {
                 .addCompanyDetails(companyDetails)
                 .addCurrencyConversion(currencyConversion)
                 .addDigitalAssetType(digitalAssetType)
+                .addConversionAffiliateCountryCode(conversionAffiliateCountryCode)
                 .build();
     }
 
