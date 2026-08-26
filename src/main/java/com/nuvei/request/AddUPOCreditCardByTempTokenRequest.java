@@ -39,7 +39,7 @@ public class AddUPOCreditCardByTempTokenRequest
      * The unique identifier generated for each customer.
      */
     @NotNull(message = "userTokenId parameter is mandatory!")
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 255)
     private String userTokenId;
 
     /**

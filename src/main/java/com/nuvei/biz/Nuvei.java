@@ -122,6 +122,7 @@ public class Nuvei {
      * @param cvvNotUsed             Flag if CVV is not used
      * @param serviceDueDate         Subscription end date
      * @param digitalAssetType       Digital currency transaction identifier.
+     * @param conversionAffiliateCountryCode The country code used for conversion affiliate tracking.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
      *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
@@ -135,7 +136,7 @@ public class Nuvei {
                                    String isMoto, SubMerchant subMerchant, String rebillingType, String authenticationOnlyType, String userId,
                                    ExternalSchemeDetails externalSchemeDetails, CurrencyConversion currencyConversion, String isPartialApproval, String paymentFlow,
                                    String redirectFlowUITheme, String aftOverride, RecipientDetails recipientDetails, CompanyDetails companyDetails, ShippingTrackingDetails shippingTrackingDetails,
-                                   String cvvNotUsed, String serviceDueDate, String digitalAssetType) throws NuveiException {
+                                   String cvvNotUsed, String serviceDueDate, String digitalAssetType, String conversionAffiliateCountryCode) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
@@ -143,7 +144,8 @@ public class Nuvei {
                 isRebilling, currency, amount, amountDetails, items, deviceDetails, userDetails, shippingAddress, billingAddress,
                 dynamicDescriptor, merchantDetails, addendums, urlDetails, customSiteName, productId, customData, relatedTransactionId,
                 transactionType, autoPayment3D, isMoto, subMerchant, rebillingType, authenticationOnlyType, userId, externalSchemeDetails, currencyConversion, isPartialApproval, paymentFlow,
-                redirectFlowUITheme, aftOverride, recipientDetails, companyDetails, shippingTrackingDetails, cvvNotUsed, serviceDueDate, digitalAssetType);
+                redirectFlowUITheme, aftOverride, recipientDetails, companyDetails, shippingTrackingDetails, cvvNotUsed, serviceDueDate, digitalAssetType,
+                conversionAffiliateCountryCode);
 
         return (PaymentResponse) requestExecutor.execute(request);
     }
@@ -313,6 +315,7 @@ public class Nuvei {
      *                             back-office tool transaction reporting and is returned in response.
      * @param comment              Enables the addition of a free text comment to the request.
      * @param subMerchant          Contains information about the SubMerchant.
+     * @param conversionAffiliateCountryCode The country code used for conversion affiliate tracking.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
      *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
@@ -320,12 +323,14 @@ public class Nuvei {
      */
     public VoidTransactionResponse voidTransaction(String clientRequestId, String relatedTransactionId, String amount, String currency,
                                                    String authCode, String clientUniqueId, UrlDetails urlDetails, String customSiteName,
-                                                   String productId, String customData, String comment, SubMerchant subMerchant) throws NuveiException {
+                                                   String productId, String customData, String comment, SubMerchant subMerchant,
+                                                   String conversionAffiliateCountryCode) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
         NuveiBaseRequest request = requestBuilder.getVoidTransactionRequest(sessionToken, clientRequestId, merchantInfo, relatedTransactionId,
-                amount, currency, authCode, clientUniqueId, urlDetails, customSiteName, productId, customData, comment, subMerchant);
+                amount, currency, authCode, clientUniqueId, urlDetails, customSiteName, productId, customData, comment, subMerchant,
+                conversionAffiliateCountryCode);
 
         return (VoidTransactionResponse) requestExecutor.execute(request);
     }
@@ -401,6 +406,7 @@ public class Nuvei {
      *                             of all item names up until parameter maximum length.
      * @param relatedTransactionId The ID of the settle transaction.
      * @param subMerchant          Contains information about the SubMerchant.
+     * @param conversionAffiliateCountryCode The country code used for conversion affiliate tracking.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiConfigurationException If the {@link Nuvei#initialize(String, String, String, String, Constants.HashAlgorithm)}
      *                                     method is not invoked beforehand NuveiConfigurationException exception will be thrown.
@@ -409,13 +415,14 @@ public class Nuvei {
     public RefundTransactionResponse refundTransaction(String clientUniqueId, String clientRequestId, UrlDetails urlDetails,
             String amount, String authCode, String comment, String currency, String customData,
             String customSiteName, String productId, String relatedTransactionId, SubMerchant subMerchant,
-            CompanyDetails companyDetails, RefundPaymentOption refundPaymentOption, String userTokenId) throws NuveiException {
+            CompanyDetails companyDetails, RefundPaymentOption refundPaymentOption, String userTokenId,
+            String conversionAffiliateCountryCode) throws NuveiException {
         ensureMerchantInfoAndSessionTokenNotNull();
 
         RequestBuilder requestBuilder = serviceFactory.getRequestBuilder();
         NuveiBaseRequest request = requestBuilder.getRefundTransactionRequest(sessionToken, merchantInfo, clientUniqueId,
                 clientRequestId, urlDetails, amount, authCode, comment, currency, customData, customSiteName, productId,
-                relatedTransactionId, subMerchant, companyDetails, refundPaymentOption, userTokenId);
+                relatedTransactionId, subMerchant, companyDetails, refundPaymentOption, userTokenId, conversionAffiliateCountryCode);
 
         return (RefundTransactionResponse) requestExecutor.execute(request);
     }
@@ -668,6 +675,7 @@ public class Nuvei {
      * @param deviceDetails         Information about client device
      * @param currencyConversion    Holds information about currency conversion type (DCC / MCP) and amount.
      * @param digitalAssetType      Digital currency transaction identifier.
+     * @param conversionAffiliateCountryCode   Country code used for conversion affiliate tracking.
      * @return Passes through the response from Nuvei's REST API.
      * @throws NuveiException
      */
@@ -675,7 +683,7 @@ public class Nuvei {
                                  UserPaymentOption userPaymentOption, String comment, DynamicDescriptor dynamicDescriptor,
                                  MerchantDetails merchantDetails, UrlDetails urlDetails, SubMethodDetails subMethodDetails,
                                  CardData cardData, DeviceDetails deviceDetails, UserDetails userDetails, CompanyDetails companyDetails,
-                                 CurrencyConversion currencyConversion, String digitalAssetType)
+                                 CurrencyConversion currencyConversion, String digitalAssetType, String conversionAffiliateCountryCode)
             throws NuveiException {
 
         ensureMerchantInfoAndSessionTokenNotNull();
@@ -684,7 +692,7 @@ public class Nuvei {
         PayoutRequest request = requestBuilder.getPayoutRequest(sessionToken, merchantInfo,
                 userTokenId, clientUniqueId, clientRequestId, amount, currency,userPaymentOption, comment, dynamicDescriptor,
                 merchantDetails, urlDetails, subMethodDetails, cardData, deviceDetails, userDetails, companyDetails,
-                currencyConversion, digitalAssetType);
+                currencyConversion, digitalAssetType, conversionAffiliateCountryCode);
 
         return (PayoutResponse) requestExecutor.execute(request);
     }

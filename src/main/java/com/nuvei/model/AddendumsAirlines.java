@@ -19,11 +19,21 @@ public class AddendumsAirlines {
     @Valid
     private AddendumsAirlinesReservationDetails reservationDetails;
 
+    private String ancillaryServicesInfo;
+
     public AddendumsAirlinesReservationDetails getReservationDetails() {
         return reservationDetails;
     }
 
     public void setReservationDetails(AddendumsAirlinesReservationDetails reservationDetails) {
         this.reservationDetails = reservationDetails;
+    }
+
+    public String getAncillaryServicesInfo() {
+        return ancillaryServicesInfo;
+    }
+
+    public void setAncillaryServicesInfo(String ancillaryServicesInfo) {
+        this.ancillaryServicesInfo = ancillaryServicesInfo;
     }
 }

@@ -75,6 +75,8 @@ public abstract class NuveiTransactionRequest extends NuveiRequest {
 
     private ShippingTrackingDetails shippingTrackingDetails;
 
+    private String conversionAffiliateCountryCode;
+
     public String getAmount() {
         return amount;
     }
@@ -175,6 +177,14 @@ public abstract class NuveiTransactionRequest extends NuveiRequest {
         this.shippingTrackingDetails = shippingTrackingDetails;
     }
 
+    public String getConversionAffiliateCountryCode() {
+        return conversionAffiliateCountryCode;
+    }
+
+    public void setConversionAffiliateCountryCode(String conversionAffiliateCountryCode) {
+        this.conversionAffiliateCountryCode = conversionAffiliateCountryCode;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("NuveiTransactionRequest{");
@@ -190,6 +200,7 @@ public abstract class NuveiTransactionRequest extends NuveiRequest {
         sb.append(", subMerchant='").append(subMerchant).append('\'');
         sb.append(", companyDetails='").append(companyDetails).append('\'');
         sb.append(", shippingTrackingDetails='").append(shippingTrackingDetails).append('\'');
+        sb.append(", conversionAffiliateCountryCode='").append(conversionAffiliateCountryCode).append('\'');
         sb.append('}');
         return sb.toString();
     }

@@ -24,6 +24,8 @@ public class PaymentRequest extends Authorize3dAndPaymentRequest {
 
     private String serviceDueDate;
 
+    private String conversionAffiliateCountryCode;
+
     public String getIsMoto() {
         return isMoto;
     }
@@ -44,6 +46,14 @@ public class PaymentRequest extends Authorize3dAndPaymentRequest {
 
     public void setServiceDueDate(String serviceDueDate) { this.serviceDueDate = serviceDueDate; }
 
+    public String getConversionAffiliateCountryCode() {
+        return conversionAffiliateCountryCode;
+    }
+
+    public void setConversionAffiliateCountryCode(String conversionAffiliateCountryCode) {
+        this.conversionAffiliateCountryCode = conversionAffiliateCountryCode;
+    }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -56,7 +66,8 @@ public class PaymentRequest extends Authorize3dAndPaymentRequest {
                 .append(", isMoto=").append(getIsMoto())
                 .append(", autoPayment3D=").append(isAutoPayment3D())
                 .append(", cvvNotUsed=").append(cvvNotUsed)
-                .append(", serviceDueDate=").append(getServiceDueDate());
+                .append(", serviceDueDate=").append(getServiceDueDate())
+                .append(", conversionAffiliateCountryCode=").append(getConversionAffiliateCountryCode());
         sb.append(super.toString());
         sb.append('}');
 
@@ -68,6 +79,7 @@ public class PaymentRequest extends Authorize3dAndPaymentRequest {
         private String isMoto;
         private String cvvNotUsed;
         private String serviceDueDate;
+        private String conversionAffiliateCountryCode;
 
         public Builder addIsMoto(String isMoto) {
             this.isMoto = isMoto;
@@ -84,6 +96,11 @@ public class PaymentRequest extends Authorize3dAndPaymentRequest {
             return this;
         }
 
+        public Builder addConversionAffiliateCountryCode(String conversionAffiliateCountryCode) {
+            this.conversionAffiliateCountryCode = conversionAffiliateCountryCode;
+            return this;
+        }
+
         /**
          * {@inheritDoc}
          */
@@ -93,6 +110,7 @@ public class PaymentRequest extends Authorize3dAndPaymentRequest {
             request.setIsMoto(isMoto);
             request.setCvvNotUsed(cvvNotUsed);
             request.setServiceDueDate(serviceDueDate);
+            request.setConversionAffiliateCountryCode(conversionAffiliateCountryCode);
 
             return ValidationUtils.validate(super.build(request));
         }
