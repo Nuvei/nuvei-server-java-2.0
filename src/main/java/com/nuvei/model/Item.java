@@ -4,6 +4,8 @@
 
 package com.nuvei.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -55,6 +57,12 @@ public class Item {
     private String discountRate;
 
     private String shippingTaxRate;
+
+    @SerializedName("MPSellerId")
+    private String mPSellerId;
+
+    @SerializedName("MPSellerCountry")
+    private String mPSellerCountry;
 
     public String getName() {
         return name;
@@ -167,5 +175,21 @@ public class Item {
 
     public void setShippingTaxRate(String shippingTaxRate) {
         this.shippingTaxRate = shippingTaxRate;
+    }
+
+    public String getMPSellerId() {
+        return mPSellerId;
+    }
+
+    public void setMPSellerId(String mPSellerId) {
+        this.mPSellerId = mPSellerId;
+    }
+
+    public String getMPSellerCountry() {
+        return mPSellerCountry;
+    }
+
+    public void setMPSellerCountry(String mPSellerCountry) {
+        this.mPSellerCountry = mPSellerCountry;
     }
 }
