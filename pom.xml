@@ -6,7 +6,7 @@
 
     <groupId>com.nuvei</groupId>
     <artifactId>nuvei-sdk-java</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.2</version>
 
     <properties>
         <safecharge_artifactory>https://srv-bsf-jfedge.gw-4u.com/artifactory/nvi-maven-vrt</safecharge_artifactory>
